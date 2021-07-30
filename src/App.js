@@ -8,7 +8,7 @@ function App() {
     <>
     <h1>The Beatles Store</h1>
     <NavBar />
-    <ItemListContainer name="Carlos" carrito="Remera Revolver" />
+    <ItemListContainer greeting="Juan" item="Remera Abbey Road" />
     </>
   );
 }

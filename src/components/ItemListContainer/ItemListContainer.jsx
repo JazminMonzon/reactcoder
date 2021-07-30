@@ -1,8 +1,8 @@
 import "./ItemListContainer.css"
 
-const ItemListContainer = ({name, carrito}) => {
+const ItemListContainer = ({greeting, item}) => {
     return <>
-    <p>Hola {name}! Estás por comprar {carrito}</p>
+    <p>Hola {greeting}! Estás por comprar {item}</p>
     </>
 }
 
