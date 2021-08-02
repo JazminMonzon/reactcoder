@@ -1,8 +1,8 @@
 import Button from "../Button/Button.jsx"
-import CartWidget from "../NavBar/CartWidget.jsx"
+import CartWidget from "../CartWidget/CartWidget.jsx"
 import "./NavBar.css"
 
-const NavBar = ({name, color}) => {
+const NavBar = () => {
     return <>
     <Button text = "Inicio" />
     <Button text = "Discos" />
