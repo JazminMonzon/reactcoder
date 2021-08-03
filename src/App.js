@@ -6,9 +6,9 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer.
 function App() {
   return (
     <>
-    <h1>The Beatles Store</h1>
-    <NavBar />
-    <ItemListContainer greeting="Juan" item="Remera Abbey Road" />
+      <h1>The Beatles Store</h1>
+      <NavBar />
+      <ItemListContainer greeting="Juan" item="Remera Abbey Road" />
     </>
   );
 }
