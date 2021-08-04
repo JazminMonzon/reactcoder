@@ -1,39 +1,28 @@
 import "./ItemCount.css"
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-const useCounter = (initialValue = 0) => {
-    const [count, setCount] = useState(initialValue)
+export default function ItemCount( { stock = 0, initial = 0, onAdd = () => {} }) {
   
-    const increment = () => {
-      setCount(count+1)
-    }
-  
-    const decrement = () => {
-      setCount(count-1)
-    }
-     
-    return {
-      count, 
-      increment,
-      decrement
-    }
+  const [userSelected, setUserSelected] = useState(initial)
+
+  const increment = () => {
+    if (userSelected < stock) setUserSelected(userSelected+1)
   }
 
-export default function ItemCount({ stock, initial, onAdd }) {
+  const decrement = () => {
+    if (userSelected > 0) setUserSelected(userSelected-1)
+  }
 
-const { count, increment, decrement } = useCounter()
+  const handleOnAddCart = (event) => {
+    if (userSelected > 0) onAdd(event)
+  }
 
-useEffect(() => {
-console.log("useEffect()")
-}, [count])
-
-
-    return(
-        <>
-        <button onClick={() => decrement()}>-</button>
-        <button onClick={() => increment()}>+</button>
-        <div>{count}</div>
-        <button>Agregar al carrito</button>
-        </>
-    )
+  return(
+    <>
+    <button className="btn btn-outline-info" onClick={() => decrement()}>-</button>
+    <button className="btn btn-outline-info" onClick={() => increment()}>+</button>
+    <div>{userSelected}</div>
+    <button className="btn btn-info" onClick={handleOnAddCart}>Agregar al carrito</button>
+    </>
+  )
 }
