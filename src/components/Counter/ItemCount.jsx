@@ -19,10 +19,12 @@ export default function ItemCount( { stock = 0, initial = 0, onAdd = () => {} })
 
   return(
     <>
-    <button className="btn btn-outline-info" onClick={() => decrement()}>-</button>
-    <button className="btn btn-outline-info" onClick={() => increment()}>+</button>
-    <div>{userSelected}</div>
-    <button className="btn btn-info" onClick={handleOnAddCart}>Agregar al carrito</button>
+      <div className='item-count'>
+        <button className="btn btn-outline-info" onClick={() => decrement()}>-</button>
+        <span className='count'>{userSelected}</span>
+        <button className="btn btn-outline-info" onClick={() => increment()}>+</button>
+      </div>
+      <button className="btn btn-info" onClick={handleOnAddCart}>Agregar al carrito</button>
     </>
   )
 }

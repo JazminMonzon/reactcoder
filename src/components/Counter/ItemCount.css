@@ -1,0 +1,9 @@
+.item-count{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.count{
+    margin: 10px;
+}
