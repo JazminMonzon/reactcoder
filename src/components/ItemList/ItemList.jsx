@@ -1,6 +1,9 @@
 import React from "react"
 import "./ItemList.css"
 import Item from "../Item/Item.jsx"
+import Remera from "../../images/remera.png"
+import Taza from "../../images/taza.jpeg"
+import Disco from "../../images/disco.jpeg"
 
 export default function ItemList() {
     const items = [
@@ -8,17 +11,23 @@ export default function ItemList() {
           id: '1',
           title: 'Remera Abbey Road',
           price: '$1000',
-          isValid: true       
+          pictureUrl: Remera,
+          stock: '5',
+          isValid: true
         },
         {
           id: '2',
           title: 'Taza Revolver',
-          price: '$500'
+          price: '$500',
+          stock: '10',
+          pictureUrl: Taza
         },
         {
           id: '3',
           title: 'Disco Please Please Me',
-          price: '$1500'
+          price: '$1500',
+          stock: '2',
+          pictureUrl: Disco
         },
       ]
 
@@ -44,7 +53,7 @@ export default function ItemList() {
 
     myPromise.then(result => console.log(result)).catch(err => console.log(err));
 
-    const ItemsList = items.map(item => ( <Item key={item.id} title={item.title} price={item.price} /> ));
+    const ItemsList = items.map(item => ( <Item key={item.id} pictureUrl={item.pictureUrl} title={item.title} price={item.price} stock={item.stock} /> ));
 
     return(
         <>
