@@ -1,9 +1,8 @@
-import "./ItemListContainer.css"
+import "./ItemDetailContainer.css"
 import { useEffect, useState } from "react"
-import ItemList from "../ItemList/ItemList.jsx"
 import ItemDetail from "../ItemDetail/ItemDetail.jsx"
 
-// ACA VA LA PROMESA
+// ACA VA LA LLAMADA A FIREBASE
 
 const getItems = () => {
     return fetch("https://api.mercadolibre.com/sites/MLA/search?q=beatles")
@@ -12,9 +11,9 @@ const getItems = () => {
     })
 }
 
-const ItemListContainer = () => {
+const ItemDetailContainer = ({}) => {
 
-    const [itemList, setItemList] = useState([])
+    const [itemListDetail, setItemListDetail] = useState([])
 
     useEffect(async () => {
         const data = await getItems().catch(err => { 
@@ -23,16 +22,16 @@ const ItemListContainer = () => {
         console.log(data)
         const arr = []
         data.results.forEach(item => {
-            arr.push(<ItemDetail key={item.id} title={item.title} price={item.price} />)
+            arr.push(<ItemDetail key={item.id} title={item.title} description={item.description} price={item.price} />)
         })
-        setItemList(arr)
+        setItemListDetail(arr)
     }, [])
 
     return <>
-    <h3>Bienvenido a la tienda!</h3>
-    <ItemList />
-    {itemList}
+    <p>Mira mas detalles</p>
+    <ItemDetail />
+    {itemListDetail}
     </>
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

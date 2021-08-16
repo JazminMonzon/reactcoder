@@ -4,6 +4,7 @@ import Item from "../Item/Item.jsx"
 import Remera from "../../images/remera.png"
 import Taza from "../../images/taza.jpeg"
 import Disco from "../../images/disco.jpeg"
+import DiscoAbbey from "../../images/discoabbeyroad.jpeg"
 
 export default function ItemList() {
     const items = [
@@ -11,14 +12,15 @@ export default function ItemList() {
           id: '1',
           title: 'Remera Abbey Road',
           price: '$1000',
-          pictureUrl: Remera,
+          description: 'Remera de algodón Abbey Road',
           stock: '5',
-          isValid: true
+          pictureUrl: Remera,
         },
         {
           id: '2',
           title: 'Taza Revolver',
           price: '$500',
+          description: 'Taza de cerámica Revolver',
           stock: '10',
           pictureUrl: Taza
         },
@@ -26,9 +28,18 @@ export default function ItemList() {
           id: '3',
           title: 'Disco Please Please Me',
           price: '$1500',
+          description: 'Disco de vinilo Please Please Me',
           stock: '2',
           pictureUrl: Disco
         },
+        {
+          id: '4',
+          title: 'Disco Abbey Road',
+          price: '$1500',
+          description: 'Disco de vinilo Abbey Road',
+          stock: '3',
+          pictureUrl: DiscoAbbey
+        }
       ]
 
     const getItem = (id = null) => {
@@ -48,16 +59,16 @@ export default function ItemList() {
         const item = await getItem('1').catch(
           err => reject(err)
         );
-        item?.isValid ? resolve(item) : reject('Not valid');
+       if (item != null) resolve(item) ; reject('Not valid');
     });
 
     myPromise.then(result => console.log(result)).catch(err => console.log(err));
 
-    const ItemsList = items.map(item => ( <Item key={item.id} pictureUrl={item.pictureUrl} title={item.title} price={item.price} stock={item.stock} /> ));
+    const ItemsList = items.map(item => ( <Item key={item.id} pictureUrl={item.pictureUrl} title={item.title} price={item.price} stock={item.stock} description={item.description} /> ));
 
     return(
         <>
-            <div className='card'>
+            <div>
                 {ItemsList}
             </div>
         </>

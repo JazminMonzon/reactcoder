@@ -1,0 +1,15 @@
+.item {
+    width: 200px;
+    height: 200px;
+    padding: 3rem;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.item > .price {
+    font-size: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
