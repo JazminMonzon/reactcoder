@@ -1,19 +1,20 @@
+import Button from "../Button/Button.jsx"
 import CartWidget from "../CartWidget/CartWidget.jsx"
 import "./NavBar.css"
 
 const NavBar = () => {
     return <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <a className="navbar-brand" href="#">The Beatles Store</a>
+        <Button text='The Beatles Store' />
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-                <a className="nav-item nav-link active" href="#">Inicio<span class="sr-only">(current)</span></a>
-                <a className="nav-item nav-link" href="#">Remeras</a>
-                <a className="nav-item nav-link" href="#">Tazas</a>
-                <a className="nav-item nav-link" href="#">Discos</a>
+                <Button text='Inicio' />
+                <Button text='Remeras' />
+                <Button text='Tazas' />
+                <Button text='Discos' />
             </div>
         </div>
         <CartWidget />
