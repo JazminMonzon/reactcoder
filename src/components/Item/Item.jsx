@@ -12,7 +12,7 @@ export default function Item({ id, title, price, pictureUrl, stock }) {
                     <div>{id}</div>
                     <div className='card-title'>{title}</div>
                     <div className='card-text'>{price}</div>
-                    <button className="btn btn-outline-info btn-sm">Detalles</button>
+                    <button className="btn btn-outline-info btn-sm">Más detalles</button>
                     <ItemCount stock={stock} initial={1} onAdd={() => alert(`Agregaste ${title} al carrito`) } />
                 </div>
             </div>

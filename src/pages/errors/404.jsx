@@ -7,7 +7,8 @@ export default function NotFound() {
 
     return(
         <>
-            <h1 style={{ color:"red" }}>No logre encontrar la pagina</h1>
+            <h1 style={{ color:"red" }}>404</h1>
+            <h2>Página no encontrada</h2>
             <div>{url}</div>
         </>
     )
