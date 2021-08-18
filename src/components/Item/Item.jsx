@@ -7,7 +7,9 @@ export default function Item({ id, title, price, pictureUrl, category }) {
     <div className='row'>
         <div className='col-sm-6'>
             <div className='card text-center'>
+                <Link to={`/${category}/${id}`}>
                 <img className="card-img-top" src={pictureUrl} alt={title} />
+                </Link>
                 <div className='card-body'>
                     <div className='card-title'>{title}</div>
                     <div className='card-text'>${price}</div>
