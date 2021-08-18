@@ -1,54 +1,46 @@
 import React from "react"
 import "./ItemList.css"
 import Item from "../Item/Item.jsx"
-import Remera from "../../images/remera.png"
-import Taza from "../../images/taza.jpeg"
-import Disco from "../../images/disco.jpeg"
-import DiscoAbbey from "../../images/discoabbeyroad.jpeg"
+import data from '../../data/data.js'
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 
-export default function ItemList() {
-  const items = [
-    {
-      id: '1',
-      title: 'Remera Abbey Road',
-      price: '$1800',
-      description: 'Remera 100% algodón estampada en vinilo termotransferible.',
-      stock: '5',
-      pictureUrl: Remera,
-    },
-    {
-      id: '2',
-      title: 'Taza Revolver',
-      price: '$1000',
-      description: 'Taza de porcelana apta microondas. Se vende por unidad.',
-      stock: '10',
-      pictureUrl: Taza
-    },
-    {
-      id: '3',
-      title: 'Disco Please Please Me',
-      price: '$6800',
-      description: 'Disco de vinilo Please Please Me. 180 grs.',
-      stock: '2',
-      pictureUrl: Disco
-    },
-    {
-      id: '4',
-      title: 'Disco Abbey Road',
-      price: '$6800',
-      description: 'Disco de vinilo Abbey Road. 180 grs.',
-      stock: '3',
-      pictureUrl: DiscoAbbey
-    }
-  ]
+const  ItemList = () => {
 
-    const ItemsList = items.map(item => ( <Item key={item.id} pictureUrl={item.pictureUrl} title={item.title} price={item.price} stock={item.stock} description={item.description} /> ));
+  const { category } = useParams()
 
-    return(
-        <>
-            <div>
-                {ItemsList}
-            </div>
-        </>
-      );
-}
+  const [productos, setProductos] = useState([])
+  const [cargando, setCargando] = useState(true)
+ 
+  useEffect(()=>{
+     const productos = () =>{
+       return new Promise((resolve, reject)=>{
+         setTimeout(()=>{
+           resolve(data)
+           console.log(data)
+         }, 2000)
+       })
+     }
+     productos().then((items)=>{
+       if (category != null){
+         const productosFiltrados = items.filter((producto) => producto.category === category)
+         setProductos(productosFiltrados)
+         setCargando(false)
+       } else {
+       setProductos(items)
+       setCargando(false)
+     }
+  })
+}, [category])
+ 
+     return(
+         <>
+         {cargando ? <h2>Cargando productos</h2> :
+         productos.map((producto =>
+         ( <Item key={producto.id} id={producto.id} title={producto.title} description={producto.description} price={producto.price} stock={producto.stock} category={producto.category} pictureUrl={producto.pictureUrl} /> ))
+         )}
+         </>
+         )
+ }
+ 
+ export default ItemList

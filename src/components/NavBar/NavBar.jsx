@@ -1,20 +1,20 @@
-import Button from "../Button/Button.jsx"
+import { Link } from "react-router-dom"
 import CartWidget from "../CartWidget/CartWidget.jsx"
 import "./NavBar.css"
 
 const NavBar = () => {
     return <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <Button text='The Beatles Store' />
+    <Link className='navbar-brand' to='/'>The Beatles Store</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-                <Button text='Inicio' />
-                <Button text='Remeras' />
-                <Button text='Tazas' />
-                <Button text='Discos' />
+                <Link className='nav-link' to='/'>Inicio</Link>
+                <Link className='nav-link' to='/remeras'>Remeras</Link>
+                <Link className='nav-link' to='/tazas'>Tazas</Link>
+                <Link className='nav-link' to='/discos'>Discos</Link>
             </div>
         </div>
         <CartWidget />

@@ -1,18 +1,21 @@
 import React from 'react'
 import "./ItemDetail.css"
-import ItemCount from "../Counter/ItemCount"
+import ItemCount from "../ItemCount/ItemCount"
 
-export default function ItemDetail({ title, description, price, id, stock, pictureUrl }) {
+const ItemDetail = ({ title, description, price, stock, pictureUrl }) => {
     return(
         <div className='card text-center'>
             <div className='card-body'>
-            <div>{id}</div>
-            <img className="card-img-top" src={pictureUrl} alt="Item Carrito" />
+            <img className="card-img-top" src={pictureUrl} alt={title} />
             <div className='card-title'>{title}</div>
-            <div className='card-text'>{price}</div>
+            <div className='card-text'>${price}</div>
             <div>{description}</div>
             <ItemCount stock={stock} initial={1} onAdd={() => alert(`Agregaste ${title} al carrito`) } />
         </div>
         </div>
     )
 }
+
+export default ItemDetail
+
+// if ternario
