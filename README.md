@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# The Beatles Store
+
+El proyecto es un E-commerce diseñado para el curso de ReactJs de Coderhouse.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
