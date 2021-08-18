@@ -1,9 +1,8 @@
 import React from "react"
 import "./Item.css"
-import ItemCount from "../ItemCount/ItemCount"
 import { Link } from "react-router-dom"
 
-export default function Item({ id, title, price, pictureUrl, stock, category }) {
+export default function Item({ id, title, price, pictureUrl, category }) {
     return(
     <div className='row'>
         <div className='col-sm-6'>
@@ -15,7 +14,6 @@ export default function Item({ id, title, price, pictureUrl, stock, category }) 
                     <Link className="btn btn-outline-info btn-sm" to={`/${category}/${id}`}>
                     Más detalles
                     </Link>
-                    <ItemCount stock={stock} initial={1} onAdd={() => alert(`Agregaste ${title} al carrito`) } />
                 </div>
             </div>
         </div>
