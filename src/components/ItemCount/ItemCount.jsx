@@ -1,5 +1,6 @@
 import "./ItemCount.css"
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 export default function ItemCount( { stock = 0, initial = 0, onAdd = () => {} }) {
   
@@ -13,9 +14,9 @@ export default function ItemCount( { stock = 0, initial = 0, onAdd = () => {} })
     if (userSelected > 0) setUserSelected(userSelected-1)
   }
 
-  const handleOnAddCart = (event) => {
-    if (userSelected > 0) onAdd(event)
-  }
+  useEffect(() => {
+    onAdd(userSelected)
+  }, [userSelected])
 
   return(
     <>
@@ -24,7 +25,6 @@ export default function ItemCount( { stock = 0, initial = 0, onAdd = () => {} })
         <span className='count'>{userSelected}</span>
         <button className="btn btn-outline-info" onClick={() => increment()}>+</button>
       </div>
-      <button className="btn btn-info" onClick={handleOnAddCart}>Agregar al carrito</button>
     </>
   )
 }
