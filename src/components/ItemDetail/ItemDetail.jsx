@@ -2,6 +2,7 @@ import React from 'react'
 import "./ItemDetail.css"
 import ItemCount from "../ItemCount/ItemCount"
 import { useState } from 'react'
+import { Link } from "react-router-dom"
 
 const ItemDetail = ({ title, description, price, stock, pictureUrl }) => {
 
@@ -23,11 +24,12 @@ const ItemDetail = ({ title, description, price, stock, pictureUrl }) => {
     }
 
     return(
+        <div className='container'>
         <div className='card text-center'>
             <div className='card-body'>
             <img className="card-img-top" src={pictureUrl} alt={title} />
-            <div className='card-title'>{title}</div>
-            <div className='card-text'>${price}</div>
+            <h5 className='card-title'>{title}</h5>
+            <h4 className='card-text'>${price}</h4>
             <div>{description}</div>
             {itemCountVisible && <ItemCount stock={stock} initial={1} onAdd={onAdd} />}
             {buyButtonsVisibility && 
@@ -38,9 +40,10 @@ const ItemDetail = ({ title, description, price, stock, pictureUrl }) => {
             {!buyButtonsVisibility &&
             <>
             <br />
-            <button className="btn btn-info" onClick={onFinishBuy}>Finalizar mi compra</button>
+            <Link className="btn btn-info" onClick={onFinishBuy} to="/cart">Finalizar mi compra</Link>
             </>
             }
+        </div>
         </div>
         </div>
     )

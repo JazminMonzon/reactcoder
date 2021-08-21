@@ -53,7 +53,7 @@ const data = [
     },
     {
         id: '6',
-        title: "Remera Sgt Peppers",
+        title: "Remera Sgt. Pepper's",
         description: "Remera de Algodón Peinado 24/1 (Calidad Premium) - Estampado en Vinilo Termo transferible (No se despega y mantiene el color y la calidad mucho mas tiempo que el estampado tradicional!!!)",
         price: 1500,
         pictureUrl: RemeraSgtPeppers,

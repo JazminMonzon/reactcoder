@@ -35,7 +35,8 @@ const  ItemList = () => {
  
      return(
          <>
-         {cargando ? <h4>Cargando productos...</h4> :
+         <br />
+         {cargando ? <h4>Cargando productos... ⏳</h4> :
          productos.map((producto =>
          ( <Item key={producto.id} id={producto.id} title={producto.title} description={producto.description} price={producto.price} stock={producto.stock} category={producto.category} pictureUrl={producto.pictureUrl} /> ))
          )}

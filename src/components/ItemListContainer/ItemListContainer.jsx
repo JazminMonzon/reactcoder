@@ -3,7 +3,8 @@ import ItemList from "../ItemList/ItemList.jsx"
 
 const ItemListContainer = () => {
     return <>
-    <h3>Bienvenido a la tienda!</h3>
+    <br />
+    <h3>Bienvenido a la tienda! 👋</h3>
     <ItemList />
     </>
 }

@@ -4,21 +4,19 @@ import { Link } from "react-router-dom"
 
 export default function Item({ id, title, price, pictureUrl, category }) {
     return(
-    <div className='row'>
-        <div className='col-sm-6'>
+    <div className='container'>
             <div className='card text-center'>
                 <Link to={`/${category}/${id}`}>
                 <img className="card-img-top" src={pictureUrl} alt={title} />
                 </Link>
                 <div className='card-body'>
-                    <div className='card-title'>{title}</div>
-                    <div className='card-text'>${price}</div>
-                    <Link className="btn btn-outline-info btn-sm" to={`/${category}/${id}`}>
+                    <h5 className='card-title'>{title}</h5>
+                    <h4 className='card-text'>${price}</h4>
+                    <Link className="btn btn-outline-info btn-sm" to={`/productos/${category}/${id}`}>
                     Más detalles
                     </Link>
                 </div>
             </div>
-        </div>
     </div>
       )
 }

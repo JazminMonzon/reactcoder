@@ -12,14 +12,14 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
                 <Link className='nav-link' to='/'>Inicio</Link>
-                <Link className='nav-link' to='/remeras'>Remeras</Link>
-                <Link className='nav-link' to='/tazas'>Tazas</Link>
-                <Link className='nav-link' to='/discos'>Discos</Link>
+                <Link className='nav-link' to='/productos/remeras'>Remeras</Link>
+                <Link className='nav-link' to='/productos/tazas'>Tazas</Link>
+                <Link className='nav-link' to='/productos/discos'>Discos</Link>
             </div>
         </div>
         <CartWidget />
         <form className="form-inline">
-            <input className="form-control mr-sm-2" type="search" placeholder="Buscar productos" aria-label="Search" />
+            <input className="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Search" />
             <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
     </nav>
