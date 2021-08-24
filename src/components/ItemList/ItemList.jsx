@@ -4,6 +4,13 @@ import Item from "../Item/Item.jsx"
 import data from '../../data/data.js'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import BarLoader from "react-spinners/BarLoader"
+import { css } from "@emotion/react";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+`;
 
 const  ItemList = () => {
 
@@ -36,7 +43,7 @@ const  ItemList = () => {
      return(
          <>
          <br />
-         {cargando ? <h4>Cargando productos... ⏳</h4> :
+         {cargando ? <div><BarLoader css={override} size={150} /></div> :
          productos.map((producto =>
          ( <Item key={producto.id} id={producto.id} title={producto.title} description={producto.description} price={producto.price} stock={producto.stock} category={producto.category} pictureUrl={producto.pictureUrl} /> ))
          )}
