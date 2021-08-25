@@ -38,7 +38,7 @@ const  ItemDetailContainer = () => {
         <>
         <br />
         {cargando ? <div><br /><br /><BarLoader css={override} size={150} /></div> :
-        <ItemDetail title={producto.title} description={producto.description} price={producto.price} stock={producto.stock} category={producto.category} id={producto.id} pictureUrl={producto.pictureUrl} /> } 
+        <ItemDetail producto={producto} /> } 
         </>
         )
 }

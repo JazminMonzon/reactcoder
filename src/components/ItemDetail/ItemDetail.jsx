@@ -1,50 +1,38 @@
 import React from 'react'
 import "./ItemDetail.css"
 import ItemCount from "../ItemCount/ItemCount"
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from "react-router-dom"
+import { CartContext } from '../../context/CartContext'
 
-const ItemDetail = ({ title, description, price, stock, pictureUrl }) => {
+const ItemDetail = ({ producto }) => {
 
     const [itemCountVisible, setItemCountVisible] = useState(true)
-    const [itemsCount, setItemsCount] = useState(0)
-    const [buyButtonsVisibility, setBuyButtonsVisibility] = useState(true)
+    const [cantidad, setCantidad] = useState(1)
 
-    const onAdd = (count) => {
-        setItemsCount (count)
-    }
-
-    const onBuy = () => {
+    const { addItem } = useContext(CartContext);
+    
+    const onAdd = (cantidad) => {
+        setCantidad(cantidad)
         setItemCountVisible(false)
-        setBuyButtonsVisibility(false)
+        addItem({
+            producto,
+            cantidad,
+         })
     }
 
-    const onFinishBuy = () => {
-        console.log("Finalizar mi compra")
-    }
-
-    return(
+    return (
         <div className='container'>
-        <div className='card text-center'>
-            <div className='card-body'>
-            <img className="card-img-top" src={pictureUrl} alt={title} />
-            <h5 className='card-title'>{title}</h5>
-            <h4 className='card-text'>${price}</h4>
-            <div>{description}</div>
-            {itemCountVisible && <ItemCount stock={stock} initial={1} onAdd={onAdd} />}
-            {buyButtonsVisibility && 
-            <>
-            <button className="btn btn-info" onClick={onBuy}>Comprar ahora</button>
-            </>
-            }
-            {!buyButtonsVisibility &&
-            <>
-            <br />
-            <Link className="btn btn-info" onClick={onFinishBuy} to="/cart">Finalizar mi compra</Link>
-            </>
-            }
-        </div>
-        </div>
+            <div className='card text-center'>
+                <div className='card-body'>
+                    <img className="card-img-top" src={producto.pictureUrl} alt={producto} />
+                    <h5 className='card-title'>{producto.title}</h5>
+                    <h4 className='card-text'>${producto.price}</h4>
+                    <div>{producto.description}</div>
+                    {itemCountVisible ? <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} /> : <><br />
+                    <Link className="btn btn-info" to="/cart">Ir a carrito</Link></>}
+                </div>
+            </div>
         </div>
     )
 }
