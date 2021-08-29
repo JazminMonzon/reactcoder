@@ -8,6 +8,8 @@ export default function CartProvider({ children, defaultCart = [] }) {
 
   const [totalPrice, setTotalPrice] = useState(0);
 
+  const [totalItems, setTotalItems] = useState(0);
+
   const addItem = (producto) => {
     setCart([...cart, { 
         producto 
@@ -31,21 +33,24 @@ export default function CartProvider({ children, defaultCart = [] }) {
     }
   };
 
-  const Total = () => {
-    let total = 0;
-    for (let i = 0; i < cart.length; i++) {
-      total = total + cart[i].producto.price * cart[i].cantidad;
-    }
-    return total;
-  };
   useEffect(() => {
-    setTotalPrice(Total());
-  }, [cart]);
+		const Total = () => {
+			let totalPrice = 0;
+			let totalItems = 0;
+			for (const Producto of cart) {
+				totalPrice = totalPrice + Producto.price * Producto.cantidad;
+				totalItems += Producto.cantidad;
+			}
+			setTotalItems(totalItems);
+			setTotalPrice(totalPrice.toFixed(2));
+		};
+		Total();
+	}, [cart]);
 
   console.log(cart)
 
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, totalPrice }}>
+    <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, totalPrice, totalItems }}>
       {children}
     </CartContext.Provider>
   );
