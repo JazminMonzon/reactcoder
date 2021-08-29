@@ -1,0 +1,45 @@
+hr {
+    position: relative;
+    width: 100vh;
+  }
+  .cart-section-text {
+    color: rgba(0, 0, 0, 0.952);
+    margin: 0.5rem 0 5rem 0;
+    font-style: normal;
+    font-weight: 600;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  
+  .btn:hover {
+    background-color: rgba(241, 107, 12, 0.952);
+    border-color: transparent;
+  }
+  
+  .final-buttons {
+    position: relative;
+    display: flex;
+    top: 3vh;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .total {
+    color: rgba(241, 107, 12, 0.952);
+    font-style: normal;
+    font-weight: lighter;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+  .message {
+    color: rgba(14, 6, 0, 0.952);
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 5rem;
+  }
+  
+  .message-card {
+    border: none;
+    padding: 2.5rem;
+  }
