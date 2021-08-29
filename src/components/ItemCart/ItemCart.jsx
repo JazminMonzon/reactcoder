@@ -11,7 +11,7 @@ const ItemCart = ({ producto, cantidad }) => {
         <h5>{`${producto.category} ${producto.title}`}</h5>
       </div>
       <div className="col-2">
-        <h5>{producto.cantidad}</h5>
+        <h5>{`${producto.cantidad}`}</h5>
       </div>
       <div className="col-2">
         <h5>{`${producto.price}`}</h5>
