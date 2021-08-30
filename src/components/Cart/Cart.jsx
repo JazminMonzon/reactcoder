@@ -6,7 +6,13 @@ import "./Cart.css";
 import ItemCart from "../ItemCart/ItemCart";
 
 const Cart = () => {
-  const { cart, clear, totalPrice } = useContext(CartContext);
+  const { cart, clear } = useContext(CartContext);
+
+  let total = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    total = total + cart[i].producto.producto.price * cart[i].producto.cantidad;
+  }
 
   return (
     <div className="container-list">
@@ -22,7 +28,7 @@ const Cart = () => {
           )}
         </div>
       </div>
-      <h3 className="total">Total $ {totalPrice}</h3>
+      <h3 className="total">Total $ {total}</h3>
 
       <div className="final-buttons">
         <button className="btn btn-info" onClick={() => clear()}>
