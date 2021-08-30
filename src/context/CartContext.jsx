@@ -13,9 +13,7 @@ export default function CartProvider({ children, defaultCart = [] }) {
   };
 
   const removeItem = (productoId) => {
-    const newProducts = cart.filter((producto) => producto.id !== productoId)
-    console.log(cart.filter((producto) => producto.id !== productoId))
-    setCart(newProducts);
+    setCart(cart.filter((re) => parseInt(re.producto.producto.id) !== parseInt(productoId)));
   };
 
   const clear = () => {
