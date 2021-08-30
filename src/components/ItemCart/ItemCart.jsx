@@ -8,7 +8,7 @@ const ItemCart = ({ producto, cantidad }) => {
   return (
     <div className="row p-3">
       <div className="col-4">
-        <h5>{`${producto.producto.category} ${producto.producto.title}`}</h5>
+        <h5>{`${producto.producto.title}`}</h5>
       </div>
       <div className="col-2">
         <h5>{`${producto.cantidad}`}</h5>

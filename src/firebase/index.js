@@ -2,13 +2,13 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { 
-  collection as
-  getCollectionFromFirebase,
-  setDoc as setDocFromFirebase,
-  getDocs as getDocsFromFirebase,
+  collection,
+  setDoc,
+  getDocs,
   query, 
   where, 
-  doc 
+  doc,
+  runTransaction,
 } from "firebase/firestore";
 
 // Your web app's Firebase configuration
