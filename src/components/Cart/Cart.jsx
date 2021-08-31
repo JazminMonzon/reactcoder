@@ -28,15 +28,19 @@ const Cart = () => {
           )}
         </div>
       </div>
+      { cart.length !== 0 ? (
       <h2 className="total">Total ${total}</h2>
+      ):
+        <div />
+        }
       <div className="final-buttons">
-        <button className="boton btn btn-info" onClick={() => clear()}>
-          Vaciar carrito
-        </button>
+      { cart.length !== 0 ? (
+        <button className="boton btn btn-info" onClick={() => clear()}>Vaciar carrito</button>
+        ):
+        <div />
+        }
         <Link to="/" className="return-link">
-          <button className="return-link-text boton btn btn-info">
-            Volver al listado
-          </button>
+          <button className="return-link-text boton btn btn-info">Volver al listado</button>
         </Link>
         { cart.length !== 0 ? (
         <Link to="/checkout">

@@ -31,7 +31,7 @@ const ItemDetail = ({ producto }) => {
                     <h4 className='card-text'>${producto.price}</h4>
                     <div>{producto.description}</div>
                     {itemCountVisible ? <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} /> : <><br />
-                    <Link className="btn btn-info" to="/cart">Ir a carrito</Link></>}
+                    <Link className="btn btn-info" to="/cart">Ir al carrito</Link></>}
                 </div>
             </div>
         </div>
