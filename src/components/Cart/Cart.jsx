@@ -11,7 +11,7 @@ const Cart = () => {
   let total = 0;
 
   for (let i = 0; i < cart.length; i++) {
-    total = total + cart[i].producto.producto.price * cart[i].producto.cantidad;
+    total = total + cart[i].producto.price * cart[i].cantidad;
   }
 
   return (
@@ -21,21 +21,20 @@ const Cart = () => {
         <div className="card w-100 message-card">
           {cart.length === 0 ? (
             <h5 className="message">
-              No hay ningún producto en tu carrito
+              No hay ningún producto en tu carrito.
             </h5>
           ) : (
             cart.map((producto, key) => <ItemCart key={key} {...producto} />)
           )}
         </div>
       </div>
-      <h3 className="total">Total $ {total}</h3>
-
+      <h3 className="total">Total ${total}</h3>
       <div className="final-buttons">
-        <button className="btn btn-info" onClick={() => clear()}>
+        <button className="boton btn btn-info" onClick={() => clear()}>
           Vaciar carrito
         </button>
         <Link to="/" className="return-link">
-          <button className="return-link-text btn btn-info">
+          <button className="return-link-text boton btn btn-info">
             Volver al listado
           </button>
         </Link>
@@ -43,7 +42,7 @@ const Cart = () => {
           to="/checkout"
           className={`${cart.length === 0 ? "disabled" : ""}`}
         >
-          <button className="btn btn-info">Terminar mi compra</button>
+          <button className="boton btn btn-info">Terminar mi compra</button>
         </Link>
       </div>
     </div>

@@ -7,35 +7,33 @@ export default function CartProvider({ children, defaultCart = [] }) {
   const [cart, setCart] = useState(defaultCart);
 
   const isInCart = (id) => {
-    const producto = cart.find((producto) => producto.id === id);
-    if (producto) {
-      return true;
+    const resultado = cart.find((prod) => prod.producto.id === id);
+    return resultado;
+  };
+
+  const addItem = ({ producto, cantidad}) => {
+    setCart([...cart, { producto, cantidad} ]);
+    if (isInCart(producto.id)) {
+      const nuevoCarrito = cart.map((prod) => {
+        if(prod.producto.id === producto.id) {
+          prod.cantidad = prod.cantidad + cantidad
+        }
+        return prod;
+      })
+      setCart(nuevoCarrito)
     } else {
-      return false;
+      setCart([...cart, { producto, cantidad} ]);
     }
   };
 
-  const addItem = (producto) => {
-    if (isInCart(producto)){
-      console.log("El producto ya existe en el carrito");
-      return;
-      } else {
-    setCart([...cart, { 
-        producto 
-      }]);
-      console.log("Producto agregado al carrito")
-  }
-  };
 
   const removeItem = (productoId) => {
-    setCart(cart.filter((re) => parseInt(re.producto.producto.id) !== parseInt(productoId)));
+    setCart(cart.filter((re) => parseInt(re.producto.id) !== parseInt(productoId)));
   };
 
   const clear = () => {
     setCart([]);
   };
-
-  console.log(cart)
 
   return (
     <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart }}>

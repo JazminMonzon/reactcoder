@@ -12,7 +12,7 @@ const data = [
         description: "Remera de Algodón Peinado 24/1 (Calidad Premium) - Estampado en Vinilo Termo transferible (No se despega y mantiene el color y la calidad mucho mas tiempo que el estampado tradicional!!!)",
         price: 1500,
         pictureUrl: RemeraAbbey,
-        stock: 5,
+        stock: 50,
         category: 'remeras'
     }, 
     {
@@ -20,7 +20,7 @@ const data = [
         title: "Taza Revolver",
         description: "TAZAS DE PORCELANA IMPORTADA - LA MEJOR CALIDAD EN TAZAS! - Porcelana premium IMPORTADA, 100% rectas y brillantes. Nuestras tazas están sublimadas en productos de excelente calidad. Rectas, sin fallas y resistentes a microondas.",
         price: 1000,
-        stock: 10,
+        stock: 100,
         pictureUrl: TazaRevolver,
         category: 'tazas'
     },
@@ -29,7 +29,7 @@ const data = [
         title: "Disco Please Please Me",
         description: "The Beatles PLEASE PLEASE ME Vinilo Remastered Nuevo",
         price: 6800,
-        stock: 2,
+        stock: 20,
         pictureUrl: DiscoPlease,
         category: 'discos'
     },
@@ -38,7 +38,7 @@ const data = [
         title: "Disco Abbey Road",
         description: "The Beatles ABBEY ROAD Vinilo Remastered Nuevo",
         price: 6800,
-        stock: 2,
+        stock: 20,
         pictureUrl: DiscoAbbey,
         category: 'discos'
     },
@@ -47,7 +47,7 @@ const data = [
         title: "Taza With the Beatles",
         description: "TAZAS DE PORCELANA IMPORTADA - LA MEJOR CALIDAD EN TAZAS! - Porcelana premium IMPORTADA, 100% rectas y brillantes. Nuestras tazas están sublimadas en productos de excelente calidad. Rectas, sin fallas y resistentes a microondas.",
         price: 1000,
-        stock: 10,
+        stock: 100,
         pictureUrl: TazaWithTheBeatles,
         category: 'tazas'
     },
@@ -57,7 +57,7 @@ const data = [
         description: "Remera de Algodón Peinado 24/1 (Calidad Premium) - Estampado en Vinilo Termo transferible (No se despega y mantiene el color y la calidad mucho mas tiempo que el estampado tradicional!!!)",
         price: 1500,
         pictureUrl: RemeraSgtPeppers,
-        stock: 5,
+        stock: 50,
         category: 'remeras'
     }
 ]
