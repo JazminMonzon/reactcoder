@@ -28,7 +28,7 @@ const Cart = () => {
           )}
         </div>
       </div>
-      <h3 className="total">Total ${total}</h3>
+      <h2 className="total">Total ${total}</h2>
       <div className="final-buttons">
         <button className="boton btn btn-info" onClick={() => clear()}>
           Vaciar carrito
@@ -38,12 +38,13 @@ const Cart = () => {
             Volver al listado
           </button>
         </Link>
-        <Link
-          to="/checkout"
-          className={`${cart.length === 0 ? "disabled" : ""}`}
-        >
+        { cart.length !== 0 ? (
+        <Link to="/checkout">
           <button className="boton btn btn-info">Terminar mi compra</button>
         </Link>
+        ):
+        <div />
+        }
       </div>
     </div>
   );
