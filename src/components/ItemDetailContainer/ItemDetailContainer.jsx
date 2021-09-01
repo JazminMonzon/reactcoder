@@ -1,46 +1,47 @@
 import React from "react"
 import "./ItemDetailContainer.css"
 import ItemDetail from "../ItemDetail/ItemDetail.jsx"
-import data from '../../data/data'
+// import data from '../../data/data'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import BarLoader from "react-spinners/BarLoader"
 import { css } from "@emotion/react";
+import { db } from '../../firebase';
 
 const override = css`
   display: block;
   margin: 0 auto;
 `;
 
-const  ItemDetailContainer = () => {
+const ItemDetailContainer = () => {
+  	const [producto, setProducto] = useState({});
+	const [isLoading, setIsLoading] = useState(false);
 
- const [producto, setProducto] = useState([])
- const [cargando, setCargando] = useState(true)
+	const { id } = useParams();
+	
+	const getItem = async (id) => {
+		db.collection('items')
+			.doc(id)
+			.onSnapshot((producto) => {
+				setProducto({...producto.data(), id: id})
+				setIsLoading(false)
+			});
+	};
 
- const { id } = useParams()
+	useEffect(() => {
+		setIsLoading(true);
+		getItem(id);
+	}, [id]);
 
- useEffect(()=>{
-    const productos = () =>{
-      return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-          resolve(data)
-        }, 2000)
-      })
-    }
-    productos().then((items)=>{
-      const producto = items.find(producto => producto.id === id)
-      setProducto(producto)
-      setCargando(false)
-    })
- }, [id])
-  
-    return(
-        <>
-        <br />
-        {cargando ? <div><br /><br /><BarLoader css={override} size={150} /></div> :
-        <ItemDetail producto={producto} /> } 
-        </>
-        )
-}
+  return ( 
+	<>
+	<br />
+  	{isLoading ? <div><BarLoader css={override} size={150} /></div>
+ 	: <ItemDetail key={id} producto={producto} />};
+	</>
+  )
+
+};
+
 
 export default ItemDetailContainer

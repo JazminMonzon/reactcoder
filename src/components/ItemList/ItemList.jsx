@@ -1,11 +1,12 @@
 import React from "react"
 import "./ItemList.css"
 import Item from "../Item/Item.jsx"
-import data from '../../data/data.js'
+// import data from '../../data/data.js'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import BarLoader from "react-spinners/BarLoader"
 import { css } from "@emotion/react";
+import { db } from '../../firebase';
 
 const override = css`
   display: block;
@@ -14,40 +15,50 @@ const override = css`
 
 const  ItemList = () => {
 
-  const { category } = useParams()
+	const [data, setData] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
 
-  const [productos, setProductos] = useState([])
-  const [cargando, setCargando] = useState(true)
- 
-  useEffect(()=>{
-     const productos = () =>{
-       return new Promise((resolve, reject)=>{
-         setTimeout(()=>{
-           resolve(data)
-           console.log(data)
-         }, 2000)
-       })
-     }
-     productos().then((items)=>{
-       if (category != null){
-         const productosFiltrados = items.filter((producto) => producto.category === category)
-         setProductos(productosFiltrados)
-         setCargando(false)
-       } else {
-       setProductos(items)
-       setCargando(false)
-     }
-  })
-}, [category])
- 
+	const { category } = useParams();
+
+	useEffect(() => {
+		const getData = async () => {
+			let ref = '';
+			category
+				? (ref = db.collection('items').where('category', '==', category))
+				: (ref = db.collection('items'));
+
+			ref.onSnapshot((querySnapshot) => {
+				const docs = [];
+				querySnapshot.forEach((doc) => {
+					docs.push({ id: doc.id, ...doc.data() });
+					setIsLoading(false);
+				});
+				setData(docs);
+			});
+		};
+
+		setIsLoading(true);
+
+		getData();
+	}, [category]);
+  
      return(
-         <>
-         <br />
-         {cargando ? <div><BarLoader css={override} size={150} /></div> :
-         productos.map((producto =>
-         ( <Item key={producto.id} id={producto.id} title={producto.title} description={producto.description} price={producto.price} stock={producto.stock} category={producto.category} pictureUrl={producto.pictureUrl} /> ))
-         )}
-         </>
+          <>
+          <br />
+            {isLoading ? <div><BarLoader css={override} size={150} /></div>
+            : (
+              data.map((data) => (
+                <Item
+                  key={data.id}
+                  id={data.id}
+                  title={data.title}
+                  price={data.price}
+                  pictureUrl={data.pictureUrl}
+                  category={data.category}
+                />
+              ))
+            )}          
+          </>
          )
  }
  
