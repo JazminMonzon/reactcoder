@@ -12,9 +12,9 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
                 <Link className='nav-link' to='/'>Inicio</Link>
-                <Link className='nav-link' to='/productos/remeras'>Remeras</Link>
-                <Link className='nav-link' to='/productos/tazas'>Tazas</Link>
-                <Link className='nav-link' to='/productos/discos'>Discos</Link>
+                <Link className='nav-link' to='/category/remeras'>Remeras</Link>
+                <Link className='nav-link' to='/category/tazas'>Tazas</Link>
+                <Link className='nav-link' to='/category/discos'>Discos</Link>
             </div>
         </div>
         <CartWidget />

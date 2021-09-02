@@ -1,7 +1,6 @@
 import React from "react"
 import "./ItemDetailContainer.css"
 import ItemDetail from "../ItemDetail/ItemDetail.jsx"
-// import data from '../../data/data'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import BarLoader from "react-spinners/BarLoader"
