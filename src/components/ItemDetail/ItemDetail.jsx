@@ -30,8 +30,13 @@ const ItemDetail = ({ producto }) => {
                     <h5 className='card-title'>{producto.title}</h5>
                     <h4 className='card-text'>${producto.price}</h4>
                     <div>{producto.description}</div>
-                    {itemCountVisible ? <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} /> : <><br />
-                    <Link className="btn btn-info" to="/cart">Ir al carrito</Link></>}
+                    {itemCountVisible ? <ItemCount stock={producto.stock} initial={1} onAdd={onAdd} /> : 
+                    <>
+                    <br />
+                    <Link className="boton-detail btn btn-info" to="/">Seguir comprando</Link>
+                    <Link className="boton-detail btn btn-info" to="/cart">Ir al carrito</Link>
+                    </>
+                    }
                 </div>
             </div>
         </div>

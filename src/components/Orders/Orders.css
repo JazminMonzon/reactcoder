@@ -1,0 +1,90 @@
+.orders {
+    max-width: 30rem;
+    padding: 1rem;
+    margin: 1rem auto;
+    border: solid 1px var(--color-alpha);
+    border-top: 3px solid var(--color-alpha);
+    position: relative;
+    text-align: left;
+    transition: all 0.3s ease;
+  }
+  
+  .orders-title {
+    text-align: center;
+    margin: 1rem 3rem 2rem;
+    color: rgba(241, 107, 12, 0.952);
+    font-style: normal;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .order-data {
+    display: grid;
+    justify-items: start;
+    list-style-type: none;
+    margin: 1rem 0;
+    padding: 0;
+    position: relative;
+    box-shadow: 0 0 0.5rem 0.5rem rgba(235, 235, 235, 0.514);
+    margin: 1rem 0;
+    padding: 0 1rem;
+  }
+  .order-header {
+    position: relative;
+    margin-top: 2rem;
+  }
+  .order h4 {
+    margin: 0;
+  }
+  
+  .order-id {
+    font-size: 0.8rem;
+    border-bottom: solid 1px var(--color-alpha);
+    width: 100%;
+    padding: 0.25rem 0;
+    margin: 0;
+    color: rgb(15, 90, 104);
+  }
+  
+  .buyer {
+    margin: 1rem 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9rem;
+  }
+  
+  .order-details,
+  .order-item {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    width: 100%;
+    padding: 0.5rem 0;
+    gap: 15px 10px;
+  }
+  
+  .order-item {
+    padding-left: 0.5rem;
+  }
+  
+  .order-details {
+    font-weight: 700;
+    border-bottom: 1px solid var(--color-gamma);
+  }
+  
+  .order-total {
+    border-top: 0.5 solid var(--color-gamma);
+    padding: 0.5rem 0;
+    font-weight: 700;
+    width: 100%;
+    text-align: right;
+  }
+  
+  .delete-btn {
+    border-radius: 50%;
+    margin: -6rem 0 0.5rem 22rem;
+  }
+  
+  .delete-icon {
+    position: relative;
+    height: 80%;
+  }

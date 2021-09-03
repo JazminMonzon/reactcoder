@@ -16,6 +16,9 @@ const ItemCart = ({ producto, cantidad }) => {
       <div className="col-2">
         <h5>{`$${producto.price}`}</h5>
       </div>
+      <div className="col-2">
+        <h5>{`$${producto.price * cantidad}`}</h5>
+      </div>
       <div className="col-1">
         <button
           className="btn delete-icon-btn"
