@@ -21,7 +21,7 @@ export default function ItemCount( { stock = 0, initial = 1, onAdd }) {
         <button className="btn btn-outline-info" onClick={() => increment()}>+</button>
       </div>
       <div>
-        <button className="btn btn-outline-info" onClick={() => onAdd(cantidad)}>Agregar al carrito</button>
+        <button className="btn btn-info" onClick={() => onAdd(cantidad)}>Agregar al carrito</button>
       </div>
     </>
   )

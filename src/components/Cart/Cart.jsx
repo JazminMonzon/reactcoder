@@ -35,12 +35,12 @@ const Cart = () => {
         }
       <div className="final-buttons">
       { cart.length !== 0 ? (
-        <button className="boton btn btn-info" onClick={() => clear()}>Vaciar carrito</button>
+        <button className="boton btn btn-outline-info" onClick={() => clear()}>Vaciar carrito</button>
         ):
         <div />
         }
         <Link to="/" className="return-link">
-          <button className="return-link-text boton btn btn-info">Volver al listado</button>
+          <button className="return-link-text boton btn btn-outline-info">Volver al listado</button>
         </Link>
         { cart.length !== 0 ? (
         <Link to="/checkout">

@@ -12,7 +12,7 @@ export default function Item({ id, title, price, pictureUrl, category }) {
                 <div className='card-body'>
                     <h5 className='card-title'>{title}</h5>
                     <h4 className='card-text'>${price}</h4>
-                    <Link className="btn btn-outline-info btn-sm" to={`/productos/${id}`}>
+                    <Link className="btn btn-info" to={`/productos/${id}`}>
                     Más detalles
                     </Link>
                 </div>

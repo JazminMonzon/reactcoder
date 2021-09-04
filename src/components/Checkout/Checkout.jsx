@@ -100,7 +100,7 @@ function Checkout(props) {
         <br />
         <div className='checkout-buttons'>
         <Link to="/cart">
-            <button className="boton btn btn-info">
+            <button className="boton btn btn-outline-info">
             Volver al carrito
           </button>
         </Link>

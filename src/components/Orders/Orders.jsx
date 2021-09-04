@@ -49,18 +49,25 @@ function Orders() {
     <div>
         <br />
       {orders.length === 0 ? (
-        <h2 className="appear">No hay ninguna órden.</h2>
+        <>
+        <h2 className="appear">No hay ninguna orden</h2>
+        <div className="final-buttons">
+        <Link to="/" className="btn btn-info">
+        <span className="back-link__text">Volver al inicio</span>
+        </Link>
+        </div>
+        </>
       ) : (
         <div className="orders appear">
           <div className="orders-title">
-            <h1>Checkout</h1>
+            <h1>Gracias por tu compra!</h1>
           </div>
           {orders.map((order) => {
             return (
               <ul className="order-data" key={order.id}>
                 <div className="order-header">
-                  <h4>Tu órden</h4>
-                  <p className="order-id">ID de la órden: {order.id} </p>
+                  <h4>Tu orden</h4>
+                  <p className="order-id">ID de la orden: {order.id} </p>
                   <button
                     onClick={() => {
                       deleteOrder(order.id);
@@ -91,7 +98,7 @@ function Orders() {
                   <span>Producto</span>
                   <span>Cantidad</span>
                   <span>Precio</span>
-                  <span>Subtotal:</span>
+                  <span>Subtotal</span>
                 </li>
                 {order.items.map(({ producto, cantidad }) => {
                   return (
@@ -109,20 +116,10 @@ function Orders() {
               </ul>
             );
           })}
-            <div className="final-buttons">
-            <button
-              className={`btn btn-info ${
-                orders.length > 0 ? "" : "disabled"
-              }`}
-            >
-              {" "}
-              Proceder al pago{" "}
-            </button>
-          </div>
           <br />
             <div className="final-buttons">
-                <Link to="/cart" className="btn btn-info">
-                <span className="back-link__text">Volver al carrito</span>
+                <Link to="/" className="btn btn-info">
+                <span className="back-link__text">Volver al inicio</span>
                 </Link>
             </div>
         </div>
