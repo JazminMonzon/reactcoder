@@ -2,9 +2,17 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { db } from '../../firebase';
 import "./Orders.css";
+import BarLoader from "react-spinners/BarLoader"
+import { css } from "@emotion/react";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+`;
 
 function Orders() {
   const [orders, setOrders] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getAll = () => {
     const itemsCollection = db.collection("orders");
@@ -17,10 +25,12 @@ function Orders() {
           return { ...doc.data(), id: doc.id };
         });
         setOrders(snapshot);
+        setIsLoading(false);
       })
       .catch((error) => {
       })
       .finally(() => {});
+      setIsLoading(true);
   };
 
   function formatDate(dateFirestore) {
@@ -46,6 +56,9 @@ function Orders() {
   }, []);
 
   return (
+    <>
+    {isLoading ? <div> <br /> <br /> <BarLoader css={override} size={150} /></div>
+ 	  : 
     <div>
         <br />
       {orders.length === 0 ? (
@@ -125,6 +138,8 @@ function Orders() {
         </div>
       )}
     </div>
+}
+</>
   );
 }
 export default Orders;
